@@ -1,0 +1,43 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  width?: string;
+  height?: string;
+}
+
+const { src, title, width = "100%", height = "400px" } = Astro.props;
+---
+
+<div class="rounded-frame">
+    <div class="iframe-container">
+        <iframe {src} {title} ></iframe>
+    </div>
+</div>
+
+<style>
+  .rounded-frame {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background-color:  #5e81ac;
+    padding: 8px;
+    display: inline-block;   
+    align-items: center;
+    justify-content: center;
+  }
+
+  .iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe {
+    border: none;
+    border-radius: 8px;
+    
+  }
+</style>

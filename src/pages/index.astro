@@ -1,20 +1,18 @@
 ---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import RoundedFrame from '../components/RoundedFrame.astro';
 
+import Greeting from "../components/greeter";
+
+const pageTitle = "Home Page";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>My Astro Site</title>
-  </head>
-  <body>
-    <h1>Welcome to Astro</h1>
-  </body>
-
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My page</h2>
+  <RoundedFrame
+    title="Example Website"
+    src="https://tiberiusbrown.github.io/Ardens/player.html?file=https://github.com/FreezingSnail/Maze-Rider/releases/download/v1.0.0/MazeRider.hex" 
+  />
+</BaseLayout>

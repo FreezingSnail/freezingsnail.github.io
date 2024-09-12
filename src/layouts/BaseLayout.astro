@@ -1,0 +1,51 @@
+---
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+import { ViewTransitions } from "astro:transitions";
+import '../styles/global.css';
+const { pageTitle } = Astro.props;
+
+
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <!--<Sidebar />-->
+
+    <Header />
+    <h1>{pageTitle}</h1>
+    <slot />
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --font-body: 'Fira Mono', monospace;
+    --font-heading: 'Fira Mono', monospace;
+  }
+  
+
+  body {
+    width: 100%;
+    max-width: 800px;
+    font-family: var(--font-body);
+    align-content: center;
+    padding-left: calc((100%) / 8);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+</style>

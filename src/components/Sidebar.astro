@@ -1,0 +1,43 @@
+---
+const allPosts = await Astro.glob('../content/posts/*.md');
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+---
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <h2>Tags</h2>
+      </div>
+      <nav class="sidebar-header">
+        <div class="nav-links">
+      {tags.map((tag) => (
+          <a href={`/tags/${tag}`}>{tag}</a>
+      ))}
+      </div>
+    </nav>
+</aside>
+
+<style>
+
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-header {
+    margin-bottom: 2rem;
+  }
+
+  .sidebar-nav {
+    flex-grow: 1;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+  }
+</style>
